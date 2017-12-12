@@ -4,13 +4,14 @@ import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 import './App.css';
 import gcm from 'node-gcm'
+import { GCM_ACCOUNT } from './Config'
 
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.sender = new gcm.Sender('AIzaSyCTjFXhiconyIyI6eSFzlUgE16DC97lNiU')
-    this.registrationTokens = ['e94EA69sqMo:APA91bF6lD_2virW3dI4EZKheGOu7k7WDxIvf2FGhYauT8QfO-4urKsnlJRypT0l0wRrG-WvdeprQ1uyEJ687xH06P_ANVXMuw81iJFsc7Oh-OYK3avNWW4iBWXRGEeQDzzDHHeWiS91']
+    this.sender = new gcm.Sender(GCM_ACCOUNT.SENDER)
+    this.registrationTokens = [GCM_ACCOUNT.TOKEN]
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)    
     this.state = {
@@ -30,7 +31,7 @@ class App extends Component {
     }
 
     let message = new gcm.Message({
-      data: { key1: this.state.input }
+      data: { message: this.state.input }
     });
     
     this.sender.send(message, { registrationTokens: this.registrationTokens }, 10, function (err, response) {
