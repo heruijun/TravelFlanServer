@@ -3,6 +3,13 @@
 
 a simple IM server side
 
+## effect
+
+![img](https://github.com/heruijun/TravelFlanGCM/blob/master/effect.gif)
+
+## client side
+see https://github.com/heruijun/TravelFlanGCM
+
 ## setup
 1. install nodejs
 2. go into directory 'travelflan-app'
